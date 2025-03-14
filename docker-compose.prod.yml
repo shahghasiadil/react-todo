@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   react-project:
     container_name: react-project_prod
