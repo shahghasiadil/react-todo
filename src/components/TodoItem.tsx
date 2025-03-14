@@ -31,11 +31,14 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdate, onDelete }) 
                         type="text"
                         value={editedTitle}
                         onChange={(e) => setEditedTitle(e.target.value)}
+                        className="dark-input"
                     />
-                    <textarea
+                    <input
+                        type="text"
                         value={editedDescription}
                         onChange={(e) => setEditedDescription(e.target.value)}
                         placeholder="Add a description (optional)"
+                        className="dark-input"
                     />
                     <div className="form-buttons">
                         <button type="submit" className="save-button">Save</button>
