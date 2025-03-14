@@ -49,13 +49,13 @@ export const useTodos = () => {
         }
     };
 
-    const updateTodo = async (id: number, updates: UpdateTodoInput) => {
+    const updateTodo = async (id: string, updates: UpdateTodoInput) => {
         setState(prev => ({ ...prev, loading: true }));
         try {
             const updated = await todoService.updateTodo(id, updates);
             setState(prev => ({
                 ...prev,
-                todos: prev.todos.map(todo => todo.id === id ? updated : todo),
+                todos: prev.todos.map(todo => todo._id === id ? updated : todo),
                 error: null
             }));
         } catch (err) {
@@ -68,13 +68,13 @@ export const useTodos = () => {
         }
     };
 
-    const deleteTodo = async (id: number) => {
+    const deleteTodo = async (id: string) => {
         setState(prev => ({ ...prev, loading: true }));
         try {
             await todoService.deleteTodo(id);
             setState(prev => ({
                 ...prev,
-                todos: prev.todos.filter(todo => todo.id !== id),
+                todos: prev.todos.filter(todo => todo._id !== id),
                 error: null
             }));
         } catch (err) {
