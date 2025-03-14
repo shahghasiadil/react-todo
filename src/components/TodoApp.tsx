@@ -7,6 +7,7 @@ export const TodoApp: React.FC = () => {
     const { todos, loading, error, addTodo, updateTodo, deleteTodo } = useTodos();
     const [newTodoTitle, setNewTodoTitle] = useState('');
     const [newTodoDescription, setNewTodoDescription] = useState('');
+    const [newTodoCompleted, setNewTodoCompleted] = useState(false);
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         if (!newTodoTitle.trim()) return;
@@ -14,9 +15,11 @@ export const TodoApp: React.FC = () => {
         await addTodo({
             title: newTodoTitle,
             description: newTodoDescription,
-            completed: false
+            completed: newTodoCompleted
         });
         setNewTodoTitle('');
+        setNewTodoDescription('');
+        setNewTodoCompleted(false);
     };
 
     if (loading) {
