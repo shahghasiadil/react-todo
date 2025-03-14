@@ -6,6 +6,6 @@ services:
     build:
       context: .
       dockerfile: prod.Dockerfile
-    image: vue-app
+    image: react-app
     ports:
-      - 8080:80
+      - 80:80

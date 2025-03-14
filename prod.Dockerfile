@@ -17,7 +17,6 @@ RUN \
   else echo "Lockfile not found." && exit 1; \
   fi
 
-# Build vue.js based on the preferred package manager
 RUN \
   if [ -f yarn.lock ]; then yarn build; \
   elif [ -f package-lock.json ]; then npm run build; \
@@ -28,10 +27,8 @@ RUN \
 # Use Nginx as the production server
 FROM nginx:stable-alpine
 
-# Copy the custom Nginx configuration file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy the built Vue.js files to the Nginx web server directory
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Expose port 80 for Nginx
