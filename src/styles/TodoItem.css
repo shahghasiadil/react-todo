@@ -1,5 +1,4 @@
 .todo-item {
-    background: white;
     border-radius: 8px;
     padding: 16px;
     margin-bottom: 12px;
@@ -104,5 +103,44 @@ input[type="checkbox"] {
     height: 20px;
     margin: 0;
     cursor: pointer;
+}
+
+.dark-input,
+.dark-textarea {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #444;
+    color: white;
+    padding: 8px 0;
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 0;
+}
+
+.dark-input {
+    height: 40px;
+    font-size: 16px;
+}
+
+.dark-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.dark-input:focus,
+.dark-textarea:focus {
+    outline: none;
+    border-bottom-color: #0088ff;
+}
+
+.dark-input::placeholder,
+.dark-textarea::placeholder {
+    color: #666;
+}
+
+.dark-input:not([disabled]),
+.dark-textarea:not([disabled]) {
+    background-color: #1e1e1e;
+    -webkit-text-fill-color: white;
 }
 }
